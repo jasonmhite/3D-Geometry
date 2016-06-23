@@ -31,7 +31,7 @@ newtype VertexList = VertexList [PolyVertex]
 instance FromJSON VertexList
 
 readVertices :: FilePath -> IO (Maybe [PolyVertex])
-readVertices p = fmap decode (BS.readFile p)
+readVertices = fmap decode . BS.readFile
 
 makeObjects :: [PolyVertex] -> [(Int, SymbolicObj3)]
 makeObjects verts = zip ids objs
