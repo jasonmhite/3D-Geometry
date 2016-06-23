@@ -47,25 +47,10 @@ writeObject (i, v) =
     writeSTL res ("output/" ++ show i ++ ".stl") v 
     >> print i
 
-{-main :: IO ()-}
-{-main = do-}
-    {-verts <- readVertices "vertices.json"-}
-    {-case verts of-}
-      {-Just v -> let x = v !! 1-}
-                    {-p = polygon . vertices $ x-}
-                    {-s = extrudeR 0.0 p height-}
-                {-in writeSTL 1.0 "test.stl" s >> print (vertices x)-}
-                {-[>[>in writeOBJ 0.5 "test.obj" s<]<]-}
-                {-[>[>in writeSVG 0.1 "test.svg" p<]<]-}
-                   {-[>[>>> print (pid x)<]<]-}
-                {-[>[>in print . vertices $ x <]<]-}
-      {-Nothing -> putStrLn "Error parsing" -}
-
 main :: IO ()
 main = do
     verts <- readVertices "vertices.json"
     case verts of
-      {-Just v -> mapM_ writeObject . makeObjects $ v-}
       Just v -> let objs = makeObjects v
                     allObjs = union . map snd $ objs
                  in writeSTL res "output/all.stl" allObjs
