@@ -5,8 +5,6 @@ import Data.Aeson
 import Data.Aeson.Types
 import GHC.Generics
 import System.FilePath
-import Data.List hiding (union)
-import Data.Function
 
 import qualified Data.ByteString.Lazy.Char8 as BS
 
